@@ -1,0 +1,38 @@
+.cursor-shadow {
+  width: 40px;
+  height: 40px;
+  background: rgba(147, 51, 234, 0.15);
+  border: 2px solid rgba(147, 51, 234, 0.3);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s ease, height 0.3s ease;
+  mix-blend-mode: difference;
+  backdrop-filter: blur(4px);
+  box-shadow: 
+    0 0 30px rgba(147, 51, 234, 0.2),
+    0 0 60px rgba(147, 51, 234, 0.1);
+}
+
+/* Interactive element hover effects */
+a:hover ~ .cursor-shadow,
+button:hover ~ .cursor-shadow,
+[role="button"]:hover ~ .cursor-shadow,
+.interactive:hover ~ .cursor-shadow {
+  width: 80px;
+  height: 80px;
+  background: rgba(147, 51, 234, 0.25);
+  border-color: rgba(147, 51, 234, 0.5);
+  box-shadow: 
+    0 0 50px rgba(147, 51, 234, 0.3),
+    0 0 100px rgba(147, 51, 234, 0.2);
+}
+
+/* Mobile devices */
+@media (hover: none) and (pointer: coarse) {
+  .cursor-shadow {
+    display: none;
+  }
+}
